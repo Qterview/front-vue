@@ -32,4 +32,8 @@ export default {
     display: grid;
     place-content: center;
 } */
+#login-modal {
+  background: white;
+  width: 520px;
+}
 </style>

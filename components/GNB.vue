@@ -55,11 +55,12 @@ export default {
 <style lang="scss" scoped>
 .nav-container {
   display: flex;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #c8c8e3;
 }
 nav {
   display: flex;
   justify-content: space-between;
+  // background-color: rgb(190, 206, 240);
   align-items: center;
   width: 100%;
   height: 80px;

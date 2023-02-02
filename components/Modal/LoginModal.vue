@@ -1,14 +1,16 @@
 <template>
-  <div v-if="login.show" class="modal-outside">
-    <div class="login-modal">
+  <div v-if="modal.login.show" class="modal-outside">
+    <div id="login-modal">
       <div class="head">
-        <h5>로그인 인증</h5>
-        <a
-          @click.prevent="$store.commit('modal/SET_LOGIN_MODAL_CLOSE')"
-          class="'close-btn'"
-        >
-        <img src alt />
-        </a>
+        로그인
+      </div>
+
+      <div class="body">
+      </div>
+      <div class="foot">
+        <a @click.prevent="$store.commit('modal/SET_LOGIN_MODAL_CLOSE')" class="'close-btn'">
+          <img src alt />
+        </a> 
       </div>
     </div>
   </div>
@@ -19,6 +21,12 @@ export default {
   computed: {
     ...mapState(["modal"]),
   },
+  // data(){
+  //   return {
+  //     leftTime: 180,
+  //     displayTime: '3분'
+  //   }
+  // }
 };
 </script>
 <style lang="scss" scoped>

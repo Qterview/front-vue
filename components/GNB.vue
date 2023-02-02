@@ -11,13 +11,13 @@
       <a @click.prevent="clickLoginButton" id="login-btn"> {{ user.email ? "로그아웃" : "로그인" }} </a>
     </div>
     <LoginModal />
-    <WritieModal />
+    <WriteModal />
   </nav>
   </div>
 </template>
 <script>
-import LoginModal from "@/components/Modal/LoginModal";
-import WriteModal from "@/components/Modal/WriteModal";
+import LoginModal from "@/components/Modal/LoginModal.vue";
+import WriteModal from "@/components/Modal/WriteModal.vue";
 import {mapState} from 'vuex';
 
 export default {

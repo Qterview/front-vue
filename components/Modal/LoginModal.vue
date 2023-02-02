@@ -8,7 +8,7 @@
       <div class="body">
       </div>
       <div class="foot">
-        <a @click.prevent="$store.commit('modal/SET_LOGIN_MODAL_CLOSE')" class="'close-btn'">
+        <a @click.prevent="$store.commit('modal/CLOSE_LOGIN_MODAL')" class="'close-btn'">
           <img src alt />
         </a> 
       </div>

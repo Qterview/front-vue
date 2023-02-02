@@ -2,40 +2,75 @@
   <div v-if="modal.write" class="modal-outside">
     <div id="write-modal">
       <div class="head">
-        <h5>질문 등록</h5>
-        <a @click.prevent="uploadQuestion"> 등록 </a>
+        <a
+          @click.prevent="$store.commit('modal/SET_WRITE_MODAL', false)"
+          class="close-btn"
+        >
+          <img src="" alt="닫기" />
+        </a>
+        <h5>글쓰기</h5>
+        <a @click.prevent="confirmUploadModal">등록</a>
       </div>
       <div class="input-container">
-      <!-- 제목입력 -->
-      <input type="text" v-model="title" placeholder="제목입력">
-      <!-- 본문입력 -->
-      <textarea v-model="content" placeholder="질문내용 입력"></textarea>
-      <!-- 하단부 버튼 -->
-      <div class="foot"></div>
+        <!-- 제목입력 -->
+        <input type="text" v-model="title" placeholder="제목입력" />
+        <!-- 본문입력 -->
+        <textarea v-model="content" placeholder="질문내용 입력"></textarea>
+        <!-- 하단부 버튼 -->
+        <div class="foot"></div>
       </div>
-
     </div>
+    <ConfirmModal
+      :show="showConfirmModal"
+      :title="confirmTitle"
+      @confirm="listenConfirm"
+    />
   </div>
 </template>
 <script>
+import ConfirmModal from "@/components/Modal/ConfirmModal.vue";
 import { mapState } from "vuex";
 export default {
-  computed: {...mapState(["modal"])},
+  components: {
+    ConfirmModal,
+  },
+  computed: { ...mapState(["modal"]) },
 
-  data(){
-    return{
-        title: null,
-        content: null
-    }
+  data() {
+    return {
+      title: "",
+      content: null,
+      showConfirmModal: false,
+      confirmTitle: "",
+    };
   },
   methods: {
-    async uploadQuestion(){
-        const data = await this.$api.$post("/", {
-            title: this.title,
-            question: this.content
-        })
-    }
-  }
+    closeConfirmModal() {
+      this.showConfirmModal = false;
+      this.confirmTitle = "";
+    },
+    confirmUploadModal() {
+      this.showConfirmModal = true;
+      this.confirmTitle = "시간대에 따라 응답이 지연될 수 있습니다.";
+    },
+    listenConfirm(confirm) {
+      !confirm ? this.closeConfirmModal() : this.uploadQuestion();
+    },
+
+    async uploadQuestion() {
+      const data = await this.$api.$post("/", {
+        title: this.title,
+        question: this.content,
+      });
+
+      if (!data) {
+        return;
+      }
+
+      this.closeConfirmModal();
+      this.$store.commit("modal/SET_WRITE_MODAL", false);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

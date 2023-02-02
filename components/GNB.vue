@@ -1,24 +1,30 @@
 <template>
   <div class="nav-container">
-  <nav>
-    <div class="side-block">
-      <nuxt-link to="/" id="logo-btn">
-        <img src="/logo/qterview_logo.png" alt="Qterviw 로고" />
-      </nuxt-link>
-    </div>
-    <div class="side-block">
-      <a @click.prevent="clickWriteButton" id="write-btn"> 질문등록 </a>
-      <a @click.prevent="clickLoginButton" id="login-btn"> {{ user.email ? "로그아웃" : "로그인" }} </a>
-    </div>
-    <LoginModal />
-    <WriteModal />
-  </nav>
+    <nav>
+      <div class="side-block">
+        <nuxt-link to="/" id="logo-btn">
+          <img
+            class="qterview-logo"
+            src="/logo/Qterview-001.png"
+            alt="Qterviw 로고"
+          />
+        </nuxt-link>
+      </div>
+      <div class="side-block">
+        <a @click.prevent="clickWriteButton" id="write-btn"> 질문등록 </a>
+        <a @click.prevent="clickLoginButton" id="login-btn">
+          {{ user.email ? "로그아웃" : "로그인" }}
+        </a>
+      </div>
+      <LoginModal />
+      <WriteModal />
+    </nav>
   </div>
 </template>
 <script>
 import LoginModal from "@/components/Modal/LoginModal.vue";
 import WriteModal from "@/components/Modal/WriteModal.vue";
-import {mapState} from 'vuex';
+import { mapState } from "vuex";
 
 export default {
   components: {
@@ -26,28 +32,29 @@ export default {
     WriteModal,
   },
   computed: {
-    ...mapState(['user'])
+    ...mapState(["user"]),
   },
   methods: {
-    clickWriteButton(){
+    clickWriteButton() {
       //로그인해야 글쓰기
-        // if(!this.user.email){
-        //     this.$store.commit('modal/SHOW_LOGIN_MODAL')
-        // }
-        //return;
-        this.$store.commit("modal/SET_WRITE_MODAL", true)
+      // if(!this.user.email){
+      //     this.$store.commit('modal/SHOW_LOGIN_MODAL')
+      // }
+      //return;
+      this.$store.commit("modal/SET_WRITE_MODAL", true);
     },
-    clickLoginButton(){
-        if(!this.user.email){
-            this.$store.commit('modal/SHOW_LOGIN_MODAL')
-            return;
-        }
-    }
-  }
+    clickLoginButton() {
+      if (!this.user.email) {
+        this.$store.commit("modal/SHOW_LOGIN_MODAL");
+        return;
+      }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 .nav-container {
+  display: flex;
   border-bottom: 1px solid #d4d4d4;
 }
 nav {
@@ -58,7 +65,6 @@ nav {
   height: 80px;
   margin: auto;
   padding: 0 20px;
-  max-width: 1100px;
   .side-block {
     display: flex;
     height: 100%;
@@ -95,6 +101,9 @@ nav {
       align-items: center;
       justify-content: center;
       font-weight: 700;
+    }
+    .qterview-logo {
+      width: 180px;
     }
   }
 }

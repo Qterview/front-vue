@@ -13,11 +13,11 @@
       </div>
       <div class="input-container">
         <!-- 제목입력 -->
-        <input type="text" v-model="title" placeholder="제목입력" />
+        <!-- <input type="text" v-model="title" placeholder="제목입력" /> -->
         <!-- 본문입력 -->
-        <textarea v-model="content" placeholder="질문내용 입력"></textarea>
+        <textarea v-model="content" placeholder="질문을 입력해주세요"></textarea>
         <!-- 하단부 버튼 -->
-        <div class="foot"></div>
+        <!-- <div class="foot"></div> -->
       </div>
     </div>
     <ConfirmModal
@@ -38,7 +38,7 @@ export default {
 
   data() {
     return {
-      title: "",
+      // title: "",
       content: null,
       showConfirmModal: false,
       confirmTitle: "",
@@ -58,10 +58,11 @@ export default {
     },
 
     async uploadQuestion() {
-      const data = await this.$api.$post("/", {
-        title: this.title,
+      const data = await this.$api.$post("/posts", {
+        //title: this.title,
         question: this.content,
       });
+      console.log(data)
 
       if (!data) {
         return;

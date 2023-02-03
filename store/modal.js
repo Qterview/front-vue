@@ -8,9 +8,9 @@ export const mutations = {
     SHOW_LOGIN_MODAL(state){
         state.login.show = true;
     },
-    SET_LOGIN_MODAL_DIRECT_LOGIN(state ) {
-        state.login.directLogin = true;
-    },
+    // SET_LOGIN_MODAL_DIRECT_LOGIN(state ) {
+    //     state.login.directLogin = true;
+    // },
     CLOSE_LOGIN_MODAL (state) {
         state.login = {
             show: false,

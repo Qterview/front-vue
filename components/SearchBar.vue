@@ -1,21 +1,21 @@
 <template>
-    <div class="wrap-searchbar">
-        <SearchIcon class="search-icon" />
-        <input type="text" v-model="query" placeholder="검색어 입력">
-    </div>
+  <div class="wrap-searchbar">
+    <SearchIcon class="search-icon" />
+    <input type="text" v-model="query" placeholder="검색어 입력" />
+  </div>
 </template>
 <script>
-import { SearchIcon } from 'vue-feather-icons'
+import { SearchIcon } from "vue-feather-icons";
 export default {
-    components: {
-        SearchIcon
-    },
-    data(){
-        return{
-            query: null
-        }
-    }
-}
+  components: {
+    SearchIcon,
+  },
+  data() {
+    return {
+      query: null,
+    };
+  },
+};
 </script>
 <style lang="scss" scoped>
 .wrap-searchbar {

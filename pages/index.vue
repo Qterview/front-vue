@@ -2,12 +2,40 @@
   <div class="main-container">
     <main>
       <SearchBar />
+      <BestBoardCard /> 
     </main>
   </div>
 </template>
 
 <script>
-export default {};
+// import BoardCard from '@/components/Main/BoardCard'
+import BestBoardCard from '@/components/Main/BestBoardCard'
+export default {
+  components: {
+    // BoardCard,
+    BestBoardCard
+  },
+  // data(){
+  //   return {
+  //     mainContent: []
+  //   }
+  // },
+  // created() {
+  //       this.getQuestionList();
+  //   },
+  // methods: {
+  //   async getQuestionList() {
+  //           const data = await this.$api.$get("/posts/list")
+
+  //           if (!Array.isArray(data)) {
+  //               return;
+  //           }
+  //           console.log(data)
+
+  //           this.mainContent = data;
+  //       }
+  // }
+ };
 </script>
 
 <style lang="scss">

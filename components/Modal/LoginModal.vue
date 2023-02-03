@@ -1,16 +1,16 @@
 <template>
   <div v-if="modal.login.show" class="modal-outside">
     <div id="login-modal">
-      <div class="head">
-        로그인
-      </div>
+      <div class="head">로그인</div>
 
-      <div class="body">
-      </div>
+      <div class="body"></div>
       <div class="foot">
-        <a @click.prevent="$store.commit('modal/CLOSE_LOGIN_MODAL')" class="'close-btn'">
+        <a
+          @click.prevent="$store.commit('modal/CLOSE_LOGIN_MODAL')"
+          class="'close-btn'"
+        >
           <img src alt />
-        </a> 
+        </a>
       </div>
     </div>
   </div>
@@ -43,5 +43,6 @@ export default {
 #login-modal {
   background: white;
   width: 520px;
+  border-radius: 10px;
 }
 </style>

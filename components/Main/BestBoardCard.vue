@@ -16,19 +16,21 @@
       <nuxt-link
         v-for="a in questionList"
         :key="a._id"
-        :class="question-link"
+        :class="question - link"
         :to="{
           name: 'question-id',
           params: { id: a.question },
         }"
       >
         <div class="question-title">
-          {{ a.question }}
+          {{ a.title }}
         </div>
         <div class="count-display">
           <div class="count-like">
             <ThumbsUpIcon size="1x" />
-            {{ a.like }}
+            <span>
+              {{ a.useful }}
+            </span>
           </div>
         </div>
       </nuxt-link>
@@ -67,18 +69,43 @@ export default {
   },
   methods: {
     async getQuestionList() {
-      const data = await this.$api.$get("/posts/list");
+      const data = await this.$api.$get("/posts?page=0");
 
       if (!Array.isArray(data)) {
         return;
       }
       console.log(data);
 
-      this.questionList = data.sort(function (a, b){
-        return b.like - a.like
+      this.questionList = data.sort(function (a, b) {
+        return b.like - a.like;
       });
     },
   },
 };
 </script>
-<style lang=""></style>
+<style lang="scss" scoped>
+.question-list > a {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(206, 217, 238);
+  margin: 10px;
+  padding: 30px;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  //좋아요 아이콘 밀림
+  // & > div > .count-like {
+  //   display: flex;
+  //   position: absolute;
+  //   & > svg,
+  //   span {
+  //     position: relative;
+  //     width: 20px;
+  //     right: 40px;
+  //     bottom: 10px;
+  //     margin-left: 5px;
+  //   }
+  // }
+}
+</style>

@@ -89,8 +89,8 @@ export default {
   width: 100%;
   height: 40px;
   background-color: rgb(206, 217, 238);
-  margin: 10px;
-  padding: 30px;
+  margin-bottom: 20px;
+  padding: 30px 10px 30px 10px;
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
@@ -101,10 +101,14 @@ export default {
   //   & > svg,
   //   span {
   //     position: relative;
+  //     display: flexbox;
   //     width: 20px;
   //     right: 40px;
   //     bottom: 10px;
   //     margin-left: 5px;
+  //   }
+  //   & > span {
+  //     display: flexbox;
   //   }
   // }
 }

@@ -2,18 +2,18 @@
   <div class="main-container">
     <main>
       <SearchBar />
-      <BestBoardCard /> 
+      <BestBoardCard />
     </main>
   </div>
 </template>
 
 <script>
 // import BoardCard from '@/components/Main/BoardCard'
-import BestBoardCard from '@/components/Main/BestBoardCard'
+import BestBoardCard from "@/components/Main/BestBoardCard";
 export default {
   components: {
     // BoardCard,
-    BestBoardCard
+    BestBoardCard,
   },
   // data(){
   //   return {
@@ -35,7 +35,7 @@ export default {
   //           this.mainContent = data;
   //       }
   // }
- };
+};
 </script>
 
 <style lang="scss">
@@ -45,8 +45,11 @@ export default {
   margin: auto;
   width: 100%;
   main {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 736px;
+    justify-content: center;
+    max-width: 70%;
   }
 }
 .board-card-container {

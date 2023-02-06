@@ -5,12 +5,7 @@
   </template>
   <script>
   export default {
-    props: {
-      question: {
-        type: String,
-        required: true
-      },
-    }
+
   };
   </script>
   <style lang="scss" scoped>

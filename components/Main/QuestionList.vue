@@ -17,7 +17,7 @@
                 name: 'question-id',
                 params: { id: a.question },
             }"> -->
-            <GlobalQuestionCard v-for="a in questionList" :question="a.question" :answer="a.answer" :_id="a.id" :like="a.like" />
+            <GlobalQuestionCard v-for="a in questionList" :question="a.question" :answer="a.answer" :key="a.id" :_id="a.id" :like="a.like" />
             <!-- <span lass="question-title">{{ a.question }}</span>
                 <div class="count-like">
                     <ThumbsUpIcon size="1x" />
@@ -65,7 +65,6 @@ export default {
             if (!Array.isArray(data)) {
                 return;
             }
-            console.log(data);
 
             this.questionList = data.sort(function (a, b) {
                 return b.like - a.like;

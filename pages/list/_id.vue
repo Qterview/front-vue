@@ -1,7 +1,7 @@
 <template>
     <div v-if="question !== null" class="main-container">
       <main>
-        <Breadcrumb :question="question" />
+        <BreadCrumb :question="question" />
         <h1>{{question}}</h1>
 
         <div class="info">

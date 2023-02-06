@@ -32,7 +32,7 @@ export default {
       const data = await this.$api.$get(
         `/posts/search/${this.$route.params.query}`
       );
-      console.log(data);
+
       this.questionList = data.map(v => {
         return {
             id: v._id,

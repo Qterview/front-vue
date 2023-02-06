@@ -3,11 +3,13 @@
     <main>
       <SearchBar />
       <QuestionList /> 
+      <Socket />
     </main>
   </div>
 </template>
 
 <script>
+// import * as socket from "websocket";
 import QuestionList from '@/components/Main/QuestionList'
 export default {
   components: {

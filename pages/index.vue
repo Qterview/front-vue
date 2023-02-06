@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-.main-container {
+/* .main-container {
   display: flex;
   justify-content: center;
   margin: auto;
@@ -37,5 +37,5 @@ export default {
 
 body {
   margin: 0;
-}
+} */
 </style>

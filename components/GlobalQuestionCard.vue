@@ -3,9 +3,9 @@
     <div class="head">
       <nuxt-link
         :to="{
-          name: 'list-key',
+          name: 'list-id',
           params: {
-            key: key,
+            id: _id,
           },
         }"
         class="title"
@@ -17,9 +17,9 @@
     <div class="body">
       <nuxt-link
         :to="{
-          name: 'list-key',
+          name: 'list-id',
           params: {
-            key: key,
+            id: _id,
           },
         }"
         class="content"
@@ -34,9 +34,9 @@
                 {{ viewCount }} -->
         <nuxt-link
           :to="{
-            name: 'list-key',
+            name: 'list-id',
             params: {
-              key: key,
+              id: _id,
             },
           }"
           class="count"
@@ -69,7 +69,7 @@ export default {
     like: {
       type: Number,
     },
-    key: {
+    _id: {
       type: String,
     },
   },

@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      query: '',
+      query: null,
     };
   },
   // methods: {
@@ -37,8 +37,8 @@ export default {
   margin: 40px 0 20px;
   & > .search-icon {
     position: absolute;
-    /* margin-right: 20px;
-    margin-top: 18px; */
+    margin-right: 20px;
+    margin-top: 18px;
   }
   & > input {
     display: block;

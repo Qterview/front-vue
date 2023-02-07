@@ -1,0 +1,148 @@
+<template>
+    <div v-if="question !== null" class="main-container">
+      <main>
+        <BreadCrumb :question="question" />
+        <h1>{{question}}</h1>
+
+        <div class="info">
+          <div class="left">
+            <!-- <span>
+              <WatchIcon class="icon" size="1x" />
+              {{$moment(createdAt).format("MM.DD")}}
+            </span> -->
+
+            <!-- 조회수미구현 -->
+            <!-- <span>
+              <EyeIcon class="icon" size="1x" />
+              {{viewCount}}
+            </span> -->
+
+            <!-- 추가질문 댓글등록 -->
+            <!-- <span>
+              <MessageCircleIcon class="icon" size="1x" />
+              {{commentCount}}
+            </span> -->
+          </div>
+          <div class="right">
+            <span>
+              <BookmarkIcon class="icon" size="1x" />
+            </span>
+            <span>
+              <MoreHorizontalIcon class="icon" size="1x" />
+            </span>
+          </div>
+        </div>
+        <div class="content">{{answer}}</div>
+        <!-- <picture v-if="article.articleImgAddress" class="article-image">
+          <img
+            :src="`https://blind-clone-coding.s3.ap-northeast-2.amazonaws.com/${article.articleImgAddress}`"
+            :alt="article.articleImgAddress"
+          />
+        </picture> -->
+        <div class="action">
+          <div class="left">
+            <span>
+              <ThumbsUpIcon class="icon" size="1x" />
+              {{like}}
+            </span>
+            <!-- <span>
+              <MessageCircleIcon class="icon" size="1x" />
+              {{article.commentCount}}
+            </span> -->
+          </div>
+        </div>
+        <!-- <section class="comment">
+          <h5>추가질문 {{article.commentCount}}</h5>
+          <InputComment :articleId="article._id" />
+          <div class="comment-list">
+            <CommentCard v-for="c in comment" :key="c._id" :comment="c" />
+          </div>
+        </section> -->
+      </main>
+      <!-- <RecommendArticleList /> -->
+    </div>
+  </template>
+  <script>
+  import {
+    EyeIcon,
+    WatchIcon,
+    ThumbsUpIcon,
+    MessageCircleIcon,
+    BookmarkIcon,
+    MoreHorizontalIcon
+  } from "vue-feather-icons";
+  export default {
+    components: {
+    //   CommentCard,
+    //   CommentList,
+    //   ContentCard,
+    //   InputComment,
+    //   RecommendArticleList,
+      EyeIcon,
+      WatchIcon,
+      ThumbsUpIcon,
+      MessageCircleIcon,
+      BookmarkIcon,
+      MoreHorizontalIcon
+    },
+    data() {
+      return {
+        id: null,
+        question: null,
+        anser: null,
+        like: 0,
+        comment: []
+      };
+    },
+    created() {
+      this.getQuestion();
+    },
+    methods: {
+      async getQuestion() {
+        this.id = this.$route.params.id;
+        const data = await this.$api.$get(`/posts/${this.id}`);
+        this.question = data.title;
+        this.answer = data.content;
+        this.like = data.useful;
+        this.createdAt = data.createdAt;
+      }
+    }
+  };
+  </script>
+  <style lang="scss" scoped>
+  h1 {
+    font-size: 24px;
+    margin: 0;
+    line-height: 32px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  .company {
+    font-size: 14px;
+    margin: 15px 0;
+  }
+  .info,
+  .action {
+    opacity: 0.4;
+    color: #222;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    .left,
+    .right {
+      display: flex;
+      gap: 20px;
+      .icon {
+        position: relative;
+        top: 1.5px;
+      }
+    }
+  }
+  .content {
+    padding: 30px 0;
+    white-space: pre-line;
+    line-height: 28px;
+  }
+  </style>

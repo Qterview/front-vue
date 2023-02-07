@@ -1,7 +1,8 @@
 //모달 상태
 export const state = () => ({
     login: { show: false, directLogin: false },
-    write: false
+    write: false,
+    pendingQuestion : []
 });
 
 export const mutations = {
@@ -19,7 +20,10 @@ export const mutations = {
     },
     SET_WRITE_MODAL (state, display){
         state.write = display;
-    }
+    },
+    // SET_PENDING_STATE(state, question){
+    //     state.pendingQuestion.push(question)
+    // }
 };
 
 export const actions = {};

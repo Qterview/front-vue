@@ -38,7 +38,6 @@ export default {
 
   data() {
     return {
-      // title: "",
       content: null,
       showConfirmModal: false,
       confirmTitle: "",
@@ -69,6 +68,7 @@ export default {
       }
 
       this.closeConfirmModal();
+      // this.$store.commit("modal/SET_PENDING_STATE", this.content)
       this.$store.commit("modal/SET_WRITE_MODAL", false);
     },
   },

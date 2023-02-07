@@ -1,7 +1,16 @@
 <template>
   <div class="wrap-searchbar">
-    <SearchIcon class="search-icon" />
     <input type="text" v-model="query" placeholder="검색어 입력" />
+    <nuxt-link :key="query" :to="{
+      name: 'search-query',
+      params : {
+        query: query
+      } 
+    }">
+    <SearchIcon class="search-icon" />
+  </nuxt-link>
+
+
   </div>
 </template>
 <script>
@@ -15,6 +24,11 @@ export default {
       query: null,
     };
   },
+  // methods: {
+  //   handleChange(){
+  //     this.$emit('search', this.query)
+  //   }
+  // }
 };
 </script>
 <style lang="scss" scoped>
@@ -24,7 +38,7 @@ export default {
   padding: 0px 10px 0px 10px;
   & > .search-icon {
     position: absolute;
-    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 18px;
   }
   & > input {

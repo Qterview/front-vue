@@ -17,7 +17,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/global.scss"
+  css: ["@/assets/global.scss", "@/assets/question.scss"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -37,8 +37,19 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    'nuxt-socket-io',
   ],
+  io: {
+    // module options
+    sockets: [
+      {
+        name: 'alarm',
+        // default: true,
+        url: 'http://localhost:3001',
+      },
+    ],
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

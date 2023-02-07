@@ -2,44 +2,23 @@
   <div class="main-container">
     <main>
       <SearchBar />
-      <BestBoardCard />
+      <QuestionList />
+      <SocketAlarm />
     </main>
   </div>
 </template>
 
 <script>
-// import BoardCard from '@/components/Main/BoardCard'
-import BestBoardCard from "@/components/Main/BestBoardCard";
+import QuestionList from "@/components/Main/QuestionList";
 export default {
   components: {
-    // BoardCard,
-    BestBoardCard,
+    QuestionList,
   },
-  // data(){
-  //   return {
-  //     mainContent: []
-  //   }
-  // },
-  // created() {
-  //       this.getQuestionList();
-  //   },
-  // methods: {
-  //   async getQuestionList() {
-  //           const data = await this.$api.$get("/posts/list")
-
-  //           if (!Array.isArray(data)) {
-  //               return;
-  //           }
-  //           console.log(data)
-
-  //           this.mainContent = data;
-  //       }
-  // }
 };
 </script>
 
 <style lang="scss">
-.main-container {
+/* .main-container {
   display: flex;
   justify-content: center;
   margin: auto;
@@ -52,7 +31,7 @@ export default {
     max-width: 70%;
   }
 }
-.board-card-container {
+.board-container {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -61,5 +40,5 @@ export default {
 
 body {
   margin: 0;
-}
+} */
 </style>

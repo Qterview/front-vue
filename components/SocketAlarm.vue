@@ -2,22 +2,29 @@
   <div v-if="socketstate.register" class="socket-outside">
     <div id="socket-modal">
       <div class="head">
-        질문 등록 알림
+        <span>질문 등록 완료</span>
+        <div class="btn-container">
+          <img
+            src="/cross-icon.png"
+            alt="닫기"
+            @click.prevent="
+              $store.commit('socketstate/SHOW_REGISTER_ALARM', false)
+            "
+          />
+        </div>
       </div>
-      <nuxt-link :to="{
-        name: 'list-id',
-        params: {
-          id: alarmId,
-        },
-      }" @click.prevent="$store.commit('socketstate/SHOW_REGISTER_ALARM', false)">
+
+      <nuxt-link
+        :to="{
+          name: 'list-id',
+          params: {
+            id: alarmId,
+          },
+        }"
+        @click.prevent="$store.commit('socketstate/SHOW_REGISTER_ALARM', false)"
+      >
         <h5 class="title">{{ `${alarmTitle}` }}</h5>
       </nuxt-link>
-
-      <div class="btn-container">
-        <button class="close-btn" @click.prevent="$store.commit('socketstate/SHOW_REGISTER_ALARM', false)">
-          닫기
-        </button>
-      </div>
     </div>
   </div>
 </template>
@@ -31,29 +38,24 @@ export default {
   data() {
     return {
       socket: null,
-      alarmTitle: "",
-      alarmId: ""
+      alarmTitle: "Ngnix에 대해 설명하세요",
+      alarmId: "",
     };
   },
-  created: function () {
-
-  },
+  created: function () {},
   mounted() {
     this.socket = this.$nuxtSocket({
       name: "alarm",
-      channel: "/alarm" //namespace
-    })
+      channel: "/alarm", //namespace
+    });
 
-    this.socket.on('alarm', (data) => {
-      console.log('소켓 데이터:', data)
-      this.$store.commit('socketstate/SHOW_REGISTER_ALARM', true)
-      this.alarmTitle = data.data
-      this.alarmId = data.id
-
-    })
-
+    this.socket.on("alarm", (data) => {
+      console.log("소켓 데이터:", data);
+      this.$store.commit("socketstate/SHOW_REGISTER_ALARM", true);
+      this.alarmTitle = data.data;
+      this.alarmId = data.id;
+    });
   },
-
 };
 </script>
 <style lang="scss" scoped>
@@ -63,12 +65,10 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-  //background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.6);
   display: grid;
   place-content: center;
   z-index: 1;
-
-
 }
 
 #socket-modal {
@@ -95,19 +95,24 @@ export default {
     color: rgb(34, 34, 34);
     font-size: 18px;
     font-weight: 700;
-    padding: 23px 30px;
+    padding: 0px 30px 20px 10px;
     border-bottom: solid 1px rgb(223, 225, 228);
+  }
 
-    .close-btn>img {
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-    }
+  .title {
+    padding-left: 10px;
   }
 
   .btn-container {
     display: flex;
-    margin-top: 30px;
+    position: relative;
+    top: -10px;
+    left: 35px;
+
+    & > img {
+      cursor: pointer;
+      width: 16px;
+    }
   }
 }
 </style>

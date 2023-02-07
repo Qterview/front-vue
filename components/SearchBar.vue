@@ -36,6 +36,7 @@ export default {
   width: 100%;
   margin: 40px 0 20px;
   & > .search-icon {
+
     position: absolute;
     margin-right: 20px;
     margin-top: 18px;

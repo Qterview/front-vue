@@ -6,7 +6,7 @@
           @click.prevent="$store.commit('modal/SET_WRITE_MODAL', false)"
           class="close-btn"
         >
-          <img src="" alt="닫기" />
+          <img src="/icon/close.png" alt="닫기" />
         </a>
         <h5>글쓰기</h5>
         <a @click.prevent="confirmUploadModal">등록</a>

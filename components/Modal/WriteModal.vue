@@ -6,7 +6,7 @@
           @click.prevent="$store.commit('modal/SET_WRITE_MODAL', false)"
           class="close-btn"
         >
-          <img src="" alt="닫기" />
+          <img src="/cross-icon.png" alt="닫기" />
         </a>
         <h5>글쓰기</h5>
         <a @click.prevent="confirmUploadModal">등록</a>
@@ -77,9 +77,10 @@ export default {
 <style lang="scss" scoped>
 #write-modal {
   width: 750px;
-  height: auto;
-  background: white;
+  // height: auto;
   height: 610px;
+  background: white;
+  border-radius: 10px;
   .dropdown {
     width: inherit;
     user-select: none;
@@ -121,7 +122,7 @@ export default {
     padding: 0 52px 55px;
   }
   input[type="text"] {
-    padding: 26px 60px 24px 0;
+    padding: 20px 60px 10px 0;
     font-size: 20px;
     line-height: 1.25em;
     display: block;
@@ -129,6 +130,9 @@ export default {
     width: 100%;
     border: none;
     border-bottom: 1px solid #eee;
+    &:focus {
+      outline: none;
+    }
   }
   textarea {
     width: 100%;
@@ -141,6 +145,9 @@ export default {
     overflow: hidden;
     letter-spacing: -0.1px;
     line-height: 1.5em;
+    &:focus {
+      outline: none;
+    }
   }
   .foot {
     height: 67px;

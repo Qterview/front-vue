@@ -2,20 +2,19 @@
   <div class="main-container">
     <main>
       <SearchBar />
-      <QuestionList /> 
+      <QuestionList />
       <SocketAlarm />
     </main>
   </div>
 </template>
 
 <script>
-import QuestionList from '@/components/Main/QuestionList'
+import QuestionList from "@/components/Main/QuestionList";
 export default {
   components: {
-    QuestionList
+    QuestionList,
   },
-
- };
+};
 </script>
 
 <style lang="scss">
@@ -25,8 +24,11 @@ export default {
   margin: auto;
   width: 100%;
   main {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 736px;
+    justify-content: center;
+    max-width: 70%;
   }
 }
 .board-container {

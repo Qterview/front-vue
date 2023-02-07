@@ -38,18 +38,18 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/moment',
-    //'nuxt-socket-io',
+    'nuxt-socket-io',
   ],
-  // io: {
-  //   // module options
-  //   sockets: [
-  //     {
-  //       name: 'main',
-  //       default: true,
-  //       url: 'ws://localhost:3001',
-  //     },
-  //   ],
-  // },
+  io: {
+    // module options
+    sockets: [
+      {
+        name: 'alarm',
+        // default: true,
+        url: 'http://localhost:3001',
+      },
+    ],
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

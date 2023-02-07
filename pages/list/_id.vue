@@ -63,12 +63,6 @@
     </div>
   </template>
   <script>
-  import Breadcrumb from "@/components/Article/Breadcrumb";
-  //import CommentCard from "@/components/Article/CommentCard";
-  //import CommentList from "@/components/Article/CommentList";
- // import ContentCard from "@/components/Article/ContentCard";
- // import InputComment from "@/components/Article/InputComment";
- // import RecommendArticleList from "@/components/Article/RecommendArticleList";
   import {
     EyeIcon,
     WatchIcon,
@@ -79,7 +73,6 @@
   } from "vue-feather-icons";
   export default {
     components: {
-      Breadcrumb,
     //   CommentCard,
     //   CommentList,
     //   ContentCard,

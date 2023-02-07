@@ -21,9 +21,9 @@ export const mutations = {
     SET_WRITE_MODAL (state, display){
         state.write = display;
     },
-    SET_PENDING_STATE(state, question){
-        state.pendingQuestion.push(question)
-    }
+    // SET_PENDING_STATE(state, question){
+    //     state.pendingQuestion.push(question)
+    // }
 };
 
 export const actions = {};

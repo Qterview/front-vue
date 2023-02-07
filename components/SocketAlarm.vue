@@ -1,14 +1,15 @@
 <template>
-  <div v-if="socket.register" class="modal-outside">
+  <div v-if="socketstate.register" class="socket-outside">
     <div id="socket-modal">
-      <div class="title">{{ alarmTitle }}</div>
+      <div class="head">
+        질문 등록 알림
+      </div>
+
+      <div class="title">{{ `${ alarmTitle } : 새로운 질의응답으로 등록되었습니다.`  }}</div>
       <div class="btn-container">
-        <button
-          class="cancel btn"
-          @click.prevent="$store.commit('modal/SHOW_REGISTER_ALARM', false)"
-        >
+        <a class="cancel btn" @click.prevent="$store.commit('socketstate/SHOW_REGISTER_ALARM', false)">
           닫기
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -18,67 +19,64 @@
 import { mapState } from "vuex";
 export default {
   computed: {
-    ...mapState(["socket"]),
-    ...mapState(["modal"])
+    ...mapState(["socketstate"]),
   },
   data() {
     return {
       socket: null,
+      alarmTitle: ""
     };
   },
   created: function () {
-    // const client = new socket.w3cwebsocket("ws://localhost:3001/");
 
-    // client.onopen = function () {
-    //   console.log("Connected");
-    //   client.send(
-    //     JSON.stringify({
-    //       event: "events",
-    //       data: "test",
-    //     })
-    //   );
-    //   client.onmessage = function (data) {
-    //     console.log(data);
-    //   };
-    // };
   },
   mounted() {
-      this.socket = this.$nuxtSocket({
-        name: "alarm",
-        channel: "/alarm" //namespace
-      })
+    this.socket = this.$nuxtSocket({
+      name: "alarm",
+      channel: "/alarm" //namespace
+    })
 
-      this.socket.on('connection', () => {
-        this.getRegisterAlarm()
-      }) 
+    this.socket.on('alarm', (data) => {
+        console.log('소켓 데이터:', data)
+        this.$store.commit('socketstate/SHOW_REGISTER_ALARM', true)
+        this.alarmTitle = data
+
+    })
 
   },
-    methods: {
-      async getRegisterAlarm(){
-        const pending = this.$store.modal.pendingQuestion
-        switch (true)
-        {
-          case !pending :    
-          return;
 
-          case pending :
-          setInterval(()=>{
-              this.socket.emit('alarm', (data) => {
-                if(data){
-                this.$store.commit('modal/SHOW_REGISTER_ALARM', true)
-                this.alarmTitle = data
-              }else{
-                this.getRegisterAlarm()
-              } 
-              })
-          }, 3000)
-          break;
-        }
-      }
-    },
 };
 </script>
 <style lang="scss" scoped>
+.socket-outside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    //background: rgba(0, 0, 0, 0.75);
+    display: grid;
+    place-content: center;
+    z-index: 1;
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: rgb(34, 34, 34);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 23px 30px;
+      border-bottom: solid 1px rgb(223, 225, 228);
+      h5 {
+        margin: 0;
+      }
+      .close-btn > img {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+    }
+  }
 #socket-modal {
   width: 320px;
   padding: 24px;

@@ -3,7 +3,7 @@
 
 ><br/>
 
->**[📎 Frontend링크](https://github.com/Qterview/backend)**<br/>
+>**[📎 Backend링크](https://github.com/Qterview/backend)**<br/>
 ><br/>
 
 

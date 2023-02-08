@@ -86,7 +86,7 @@ export default {
       this.answer = data.content;
       this.like = data.useful;
       this.likeCount = this.like
-      // this.createdAt = data.createdAt;
+      this.createdAt = data.createdAt;
     },
 
     async postLike() {

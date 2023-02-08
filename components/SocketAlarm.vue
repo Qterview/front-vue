@@ -27,6 +27,24 @@
       </nuxt-link>
     </div>
   </div>
+
+  <!-- <div v-else-if="socketstate.fail" class="socket-outside">
+    <div id="socket-modal">
+      <div class="head">
+        <span>AI 처리가 지연되고 있습니다. 질문등록을 다시 시도해주십시오.</span>
+        <div class="btn-container">
+          <img
+            src="/cross-icon.png"
+            alt="닫기"
+            @click.prevent="
+              $store.commit('socketstate/SHOW_FAIL_ALARM', false)
+            "
+          />
+        </div>
+      </div>
+        <h5 class="title">{{ `${alarmTitle}` }}</h5>
+    </div>
+  </div> -->
 </template>
 <script>
 // import * as socket from "websocket";
@@ -55,6 +73,13 @@ export default {
       this.alarmTitle = data.data;
       this.alarmId = data.id;
     });
+
+    // this.socket.on("error", (data)=> {
+    //   console.log("소켓 에러:", data);
+    //   this.$store.commit("socketstate/SHOW_FAIL_ALARM", true);
+    //   this.alarmTitle = data.title;
+
+    // })
   },
 };
 </script>

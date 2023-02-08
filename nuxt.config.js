@@ -43,7 +43,7 @@ export default {
         name: "alarm",
         // default: true,
         // url: "http://localhost:3001",
-        url: "http://3.39.253.103:3001"
+        url: "http://3.39.253.103"
       },
     ],
   },

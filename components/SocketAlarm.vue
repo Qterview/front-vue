@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       socket: null,
-      alarmTitle: "Ngnix에 대해 설명하세요",
+      alarmTitle: "",
       alarmId: "",
     };
   },

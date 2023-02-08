@@ -1,7 +1,7 @@
 <template>
   <div v-if="question !== null" class="main-container">
     <main>
-      <BreadCrumb :question="question" />
+      <BreadCrumb :createAt="createdAt" />
       <h1>{{ question }}</h1>
 
       <div class="info">
@@ -25,10 +25,10 @@
           <h3>추천수 {{ likeCount }}</h3>
         </div>
         <div class="likeButton">
-          <span>
+          <span class="likeButtonInner">
             <ThumbsUpIcon class="icon" size="2x" @click.prevent="postLike" />
           </span>
-          <span>
+          <span class="unlikeButtonInner">
             <ThumbsDownIcon class="icon" size="2x" @click.prevent="postUnlike" />
           </span>
         </div>
@@ -72,6 +72,7 @@ export default {
       like: 0,
       likeCount: 0,
       tempList: [],
+      createdAt: null,
       // comment: [],
     };
   },
@@ -171,11 +172,18 @@ h5 {
   }
 
   .likeButton {
-    opacity: 0.4;
+    opacity: 0.6;
     display: flex;
     width: 200px;
     justify-content: space-between;
     gap: 20px;
+    cursor: pointer;
+  }
+  .likeButtonInner:hover {
+    opacity: 0.4;
+  }
+  .unlikeButtonInner:hover {
+    opacity: 0.4;
   }
 
   .likedButton {
@@ -184,6 +192,7 @@ h5 {
     width: 200px;
     justify-content: space-between;
     gap: 20px;
+    cursor: pointer;
   }
 }
 

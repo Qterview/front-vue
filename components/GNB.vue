@@ -48,7 +48,14 @@ export default {
         this.$store.commit("modal/SHOW_LOGIN_MODAL");
         return;
       }
+      this.logout()
     },
+    logout(){
+      this.$store.commit("user/SET_USER", {
+        email: null,
+        nickname: null
+      })
+    }
   },
 };
 </script>

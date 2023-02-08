@@ -40,7 +40,8 @@ a {
       max-width: inherit;
     }
   }
-  .modal-outside {
+
+.modal-outside {
     position: fixed;
     top: 0;
     left: 0;
@@ -61,6 +62,7 @@ a {
       border-bottom: solid 1px rgb(223, 225, 228);
       h5 {
         margin: 0;
+        font-weight:bold;
       }
       .close-btn > img {
         width: 16px;

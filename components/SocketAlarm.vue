@@ -42,7 +42,7 @@
           />
         </div>
       </div>
-        <h5 class="title">{{ `${alarmTitle}` }}</h5>
+        <h5 class="title">{{ `당신의 질문 : ${alarmTitle}` }}</h5>
     </div>
   </div> -->
 </template>

@@ -1,6 +1,6 @@
 <template>
     <section class="breadcrumb">
-      누군가의 질문과 ChatGPT의 응답
+      <!-- {{createdAt}} -->
     </section>
   </template>
   <script>

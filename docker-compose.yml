@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  main:
+    image: zin354/qterview:front1
+    restart: unless-stopped
+    ports:
+      - "80:8080"

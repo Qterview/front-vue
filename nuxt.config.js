@@ -44,7 +44,7 @@ export default {
         // default: true,
         // url: "http://localhost:3000",
         // url: "http://3.39.253.103"
-        url: "http://charm10jo-dragonball.shop"
+        url: "https://charm10jo-dragonball.shop"
       },
     ],
   },

@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider nuxt",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider nuxt build",
-    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider nuxt start",
-    "generate": "cross-env NODE_OPTIONS=--openssl-legacy-provider nuxt generate"
+    "dev": "nuxt --openssl-legacy-provider",
+    "build": "nuxt build --openssl-legacy-provider",
+    "start": "nuxt start --openssl-legacy-provider",
+    "generate": "nuxt generate --openssl-legacy-provider"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

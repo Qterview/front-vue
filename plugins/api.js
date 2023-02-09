@@ -10,7 +10,7 @@ export default function ({ $axios }, inject) {
 
   // Set baseURL to something different
   // api.setBaseURL("http://3.39.253.103");
-  api.setBaseURL('http://localhost:3000')
+  api.setBaseURL("http://charm10jo-dragonball.shop")
 
   // Inject to context as $api
   inject("api", api);

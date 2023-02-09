@@ -42,8 +42,9 @@ export default {
       {
         name: "alarm",
         // default: true,
-        url: "http://localhost:3000",
+        // url: "http://localhost:3000",
         // url: "http://3.39.253.103"
+        url: "http://http://charm10jo-dragonball.shop"
       },
     ],
   },

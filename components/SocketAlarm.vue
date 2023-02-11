@@ -15,7 +15,7 @@
         params: {
           id: alarmId,
         },
-      }" @click.prevent="$store.commit('socketstate/SHOW_REGISTER_ALARM', false)">
+      }" @click.self="$store.commit('socketstate/SHOW_REGISTER_ALARM', false)">
         <h5 class="title">{{ `${alarmTitle}` }}</h5>
       </nuxt-link>
     </div>

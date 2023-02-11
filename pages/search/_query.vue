@@ -1,15 +1,19 @@
 <template>
   <div class="question-container">
-    <section>
+  <p></p>
+    <section class="total">
       <strong>{{ query }}</strong>
       검색결과
+      <p></p>
+      전체({{ questionList.length }})
     </section>
-    <section class="total">전체({{ questionList.length }})</section>
+
     <section class="question-list">
       <GlobalQuestionCard
         v-for="a in questionList"
         :question="a.question"
         :key="a.id"
+        :_id="a.id"
         :like="a.like"
       />
     </section>
@@ -46,4 +50,12 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style lang="scss" scoped>
+.total {
+  font-size: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #eee;
+}
+</style>

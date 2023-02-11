@@ -1,10 +1,18 @@
 <template>
     <section class="breadcrumb">
-      작성일자 {{ updatedAt }}
+      작성일자 {{ updatedDate }} {{ updatedTime }}
     </section>
   </template>
   <script>
   export default {
+    props: {
+    updatedDate: {
+      type: String
+    },
+    updatedTime: {
+      type: String
+    }
+  },
 
   };
   </script>

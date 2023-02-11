@@ -30,8 +30,6 @@
 
     <div class="foot">
       <div class="left">
-        <!-- <EyeIcon class="icon" size="1x" />
-                {{ viewCount }} -->
         <nuxt-link
           :to="{
             name: 'list-id',
@@ -53,7 +51,6 @@
 </template>
 <script>
 import {
-  EyeIcon,
   ThumbsUpIcon,
   // MessageCircleIcon,
   // BookmarkIcon

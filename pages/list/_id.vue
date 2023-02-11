@@ -1,7 +1,7 @@
 <template>
   <div v-if="question !== null" class="main-container">
     <main>
-      <BreadCrumb :createAt="updatedAt" />
+      <BreadCrumb :updatedAt="updatedAt" />
       <h1>{{ question }}</h1>
 
       <div class="info">

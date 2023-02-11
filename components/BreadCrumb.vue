@@ -1,6 +1,6 @@
 <template>
     <section class="breadcrumb">
-      <!-- {{createdAt}} -->
+      작성일자 {{ updatedAt }}
     </section>
   </template>
   <script>

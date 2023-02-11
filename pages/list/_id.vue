@@ -1,7 +1,7 @@
 <template>
   <div v-if="question !== null" class="main-container">
     <main>
-      <BreadCrumb :createAt="createdAt" />
+      <BreadCrumb :createAt="updatedAt" />
       <h1>{{ question }}</h1>
 
       <div class="info">
@@ -72,7 +72,7 @@ export default {
       like: 0,
       likeCount: 0,
       tempList: [],
-      createdAt: null,
+      updatedAt: null,
       // comment: [],
     };
   },
@@ -87,7 +87,7 @@ export default {
       this.answer = data.content;
       this.like = data.useful;
       this.likeCount = this.like
-      this.createdAt = data.createdAt;
+      this.updatedAt = data.updatedAt;
     },
 
     async postLike() {

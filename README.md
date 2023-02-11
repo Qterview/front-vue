@@ -1,7 +1,7 @@
 ## **_Qterview_**
-
->**[📎 Backend링크](https://github.com/Qterview/backend)**<br/>
->ChatGPT를 이용한 면접질문 리스트를 만드는 프로젝트 입니다.
+>ChatGPT를 이용한 면접질문 리스트를 만드는 프로젝트 입니다.<br/><br/>
+>**[📎 Backend링크](https://github.com/Qterview/backend)**<br/><br/>
+>**[📎 시연영상링크](https://youtu.be/rMbDAtmmTZk)**<br/>
 
 
 

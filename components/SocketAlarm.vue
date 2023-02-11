@@ -4,18 +4,25 @@
       <div class="head">
         <span>질문 등록 완료</span>
         <div class="btn-container">
-          <img src="/cross-icon.png" alt="닫기" @click.prevent="
-            $store.commit('socketstate/SHOW_REGISTER_ALARM', false)
-          " />
+          <img
+            src="/cross-icon.png"
+            alt="닫기"
+            @click.prevent="
+              $store.commit('socketstate/SHOW_REGISTER_ALARM', false)
+            "
+          />
         </div>
       </div>
 
-      <nuxt-link :to="{
-        name: 'list-id',
-        params: {
-          id: alarmId,
-        },
-      }" @click.self="$store.commit('socketstate/SHOW_REGISTER_ALARM', false)">
+      <nuxt-link
+      @click.native="$store.commit('socketstate/SHOW_REGISTER_ALARM', false)"
+        :to="{
+          name: 'list-id',
+          params: {
+            id: alarmId,
+          },
+        }"
+      >
         <h5 class="title">{{ `${alarmTitle}` }}</h5>
       </nuxt-link>
     </div>
@@ -24,11 +31,15 @@
   <div v-else-if="socketstate.fail" class="socket-outside">
     <div id="socket-modal">
       <div class="head">
-        <span>AI 처리가 지연되고 있습니다. 질문등록을 다시 시도해주십시오.</span>
+        <span
+          >AI 처리가 지연되고 있습니다. 질문등록을 다시 시도해주십시오.</span
+        >
         <div class="btn-container">
-          <img src="/cross-icon.png" alt="닫기" @click.prevent="
-            $store.commit('socketstate/SHOW_FAIL_ALARM', false)
-          " />
+          <img
+            src="/cross-icon.png"
+            alt="닫기"
+            @click.prevent="$store.commit('socketstate/SHOW_FAIL_ALARM', false)"
+          />
         </div>
       </div>
       <h5 class="title">{{ `당신의 질문 : ${alarmTitle}` }}</h5>
@@ -49,7 +60,7 @@ export default {
       alarmId: "",
     };
   },
-  created: function () { },
+  created: function () {},
   mounted() {
     this.socket = this.$nuxtSocket({
       name: "alarm",
@@ -65,12 +76,11 @@ export default {
       }
     });
 
-    this.socket.on("error", (data)=> {
+    this.socket.on("error", (data) => {
       console.log("소켓 에러:", data);
       this.$store.commit("socketstate/SHOW_FAIL_ALARM", true);
       this.alarmTitle = data.title;
-
-    })
+    });
   },
 };
 </script>
@@ -125,7 +135,7 @@ export default {
     top: -10px;
     left: 35px;
 
-    &>img {
+    & > img {
       cursor: pointer;
       width: 16px;
     }

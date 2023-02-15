@@ -15,7 +15,7 @@
 <br/>
 
 ## 🛠️ **_프로젝트 아키텍처_**
-![Qterview아키텍처](https://user-images.githubusercontent.com/98438390/217975114-031c6f38-d0a4-441b-af29-b41f5301bc4b.jpg)
+![Qterview아키텍처](https://user-images.githubusercontent.com/98438390/218460483-206e3585-b6dd-40e2-b8a5-737241f5d170.png)
 
 <br/>
 
